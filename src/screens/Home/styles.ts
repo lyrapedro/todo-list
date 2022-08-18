@@ -2,11 +2,11 @@ import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
   body: {
-    flex: 1,
     backgroundColor: "#0D0D0D",
   },
   container: {
-    padding: 24,
+    paddingLeft: 24,
+    paddingRight: 24,
   },
   logoTo: {
     marginLeft: 10,
@@ -28,8 +28,10 @@ export const styles = StyleSheet.create({
   form : {
     width: "100%",
     flexDirection: "row",
-    marginTop: 36,
-    marginBottom: 42
+    alignItems: "center",
+    position: "relative",
+    top: 25,
+    zIndex: 14444
   },
   taskInput: {
     flex: 1,
@@ -54,9 +56,42 @@ export const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 20,
   },
+  statusRow: {
+    width: "100%",
+    flexDirection: "row",
+    position: "relative",
+    paddingTop: 80,
+  },
+  createdText: {
+    color: "#4EA8DE",
+    fontWeight: "bold",
+  },
+  doneText: {
+    color: "#5E60CE",
+    position: "absolute",
+    right: 0,
+    bottom: 0,
+    fontWeight: "bold",
+  },
   list: {
     height: "100%",
     width: "100%",
-    backgroundColor: "#333333"
+    backgroundColor: "#333333",
+    zIndex: -1
+  },
+  tasks: {
+    borderTopColor: "#808080",
+    borderTopWidth: 1,
+  },
+  listEmptyComponent: {
+    alignContent: "center",
+    justifyContent: "center",
+  },
+  imgEmpty: {
+    height: 58,
+    width: 58,
+  },
+  listEmptyText: {
+
   }
 })
