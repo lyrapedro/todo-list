@@ -21,32 +21,36 @@ type Task = {
 export function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [taskName, setTaskName] = useState("");
-  const [taskDone, setTaskDone] = useState(false);
+  const [createdCount, setCreatedCount] = useState(0);
+  const [doneCount, setDoneCount] = useState(0);
 
   function handleTaskAdd() {
     if (tasks?.some((element) => element.name == taskName)) {
-      return Alert.alert(
-        "Assinatura existe",
-        "Já existe uma assinatura com esse nome"
-      );
+      return Alert.alert("Tarefa existe", "Já existe uma Tarefa com esse nome");
     }
 
     setTasks((prevState) => [
       ...prevState,
-      { id: uuid.v4().toString(), name: taskName, done: taskDone },
+      { id: uuid.v4().toString(), name: taskName, done: false },
     ]);
     setTaskName("");
-    setTaskDone(false);
+    setCreatedCount(createdCount + 1);
   }
 
   function handleTaskRemove(taskId: string, taskName: string) {
     Alert.alert("Remover", `Deseja remover a tarefa ${taskName}?`, [
       {
         text: "Sim",
-        onPress: () =>
+        onPress: () => {
+          const task = tasks.find((element) => element.id == taskId);
           setTasks((prevState) =>
             prevState.filter((element) => element.id !== taskId)
-          ),
+          );
+          setCreatedCount(createdCount - 1);
+          if (task?.done) {
+            setDoneCount(doneCount - 1);
+          }
+        },
       },
       {
         text: "Cancelar",
@@ -59,6 +63,11 @@ export function Home() {
     const newTasksState = tasks.map((obj) => {
       if (obj.id == taskId) {
         const newValue = !obj.done;
+        if (newValue == true) {
+          setDoneCount(doneCount + 1);
+        } else {
+          setDoneCount(doneCount - 1);
+        }
         return { ...obj, done: newValue };
       }
       return obj;
@@ -95,7 +104,13 @@ export function Home() {
         <View style={styles.container}>
           <View style={styles.statusRow}>
             <Text style={styles.createdText}>Criadas</Text>
+            <View style={styles.count}>
+              <Text style={styles.countText}>{createdCount}</Text>
+            </View>
             <Text style={styles.doneText}>Concluídas</Text>
+            <View style={styles.count2}>
+              <Text style={styles.countText}>{doneCount}</Text>
+            </View>
           </View>
           <View style={styles.tasks}>
             <FlatList
@@ -105,6 +120,7 @@ export function Home() {
                 <Task
                   key={item.id}
                   name={item.name}
+                  done={item.done}
                   onChange={() => handleTaskDone(item.id)}
                   onRemove={() => handleTaskRemove(item.id, item.name)}
                 />

@@ -5,12 +5,12 @@ import { Trash } from "phosphor-react-native";
 
 type Props = {
   name: string;
+  done: boolean;
   onChange: () => void;
   onRemove: () => void;
 };
 
-export function Task({ name, onChange, onRemove }: Props) {
-  
+export function Task({ name, done, onChange, onRemove }: Props) {
   return (
     <View style={styles.task}>
       <View style={styles.container}>
@@ -21,7 +21,7 @@ export function Task({ name, onChange, onRemove }: Props) {
           iconStyle={{ borderColor: "red" }}
           style={styles.checkbox}
         />
-        <Text style={styles.taskText}>{name}</Text>
+        <Text style={done ? styles.taskTextDone : styles.taskText}>{name}</Text>
         <TouchableOpacity onPress={onRemove}>
           <Trash size={20} color="#808080" />
         </TouchableOpacity>

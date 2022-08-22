@@ -70,7 +70,7 @@ export const styles = StyleSheet.create({
   doneText: {
     color: "#5E60CE",
     position: "absolute",
-    right: 0,
+    right: 30,
     bottom: 0,
     fontWeight: "bold",
   },
@@ -111,5 +111,33 @@ export const styles = StyleSheet.create({
     color: "#808080",
     fontSize: 12,
     textAlign: "center"
+  },
+  count: {
+    backgroundColor: "#333333",
+    marginLeft: 5,
+    minWidth: 20,
+    alignContent: "center",
+    alignItems: "center",
+    justifyContent: "center",
+    border: 1,
+    borderRadius: 10
+  },
+  count2: {
+    backgroundColor: "#333333",
+    marginLeft: 5,
+    minWidth: 20,
+    alignContent: "center",
+    alignItems: "center",
+    justifyContent: "center",
+    border: 1,
+    borderRadius: 10,
+    position: "absolute",
+    right: 0,
+    bottom: 0,
+    height: "100%"
+  },
+  countText: {
+    color: "#fff",
+    fontSize: 10,
   }
 })

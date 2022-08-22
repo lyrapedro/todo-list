@@ -25,6 +25,11 @@ export const styles =   StyleSheet.create({
   },
   taskText: {
     color: "#FFF",
-    flex: 1
+    flex: 1,
+  },
+  taskTextDone: {
+    color: "#808080",
+    flex: 1,
+    textDecorationLine: "line-through",
   }
 })
