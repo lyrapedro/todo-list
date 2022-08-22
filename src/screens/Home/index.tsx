@@ -69,9 +69,11 @@ export function Home() {
             style={styles.taskInput}
             placeholder="Insira uma tarefa"
             placeholderTextColor="#6B6B6B"
+            onChangeText={setTaskName}
+            value={taskName}
           />
 
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={handleTaskAdd}>
             <Text style={styles.buttonText}>+</Text>
           </TouchableOpacity>
         </View>
@@ -104,6 +106,9 @@ export function Home() {
                   />
                   <Text style={styles.listEmptyText}>
                     Você ainda não tem tarefas cadastradas
+                  </Text>
+                  <Text style={styles.listEmptyText2}>
+                    Crie tarefas e organize seus itens a fazer
                   </Text>
                 </View>
               )}

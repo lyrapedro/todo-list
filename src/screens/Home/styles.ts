@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native"
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   body: {
@@ -61,6 +61,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     position: "relative",
     paddingTop: 80,
+    marginBottom: 10,
   },
   createdText: {
     color: "#4EA8DE",
@@ -76,22 +77,39 @@ export const styles = StyleSheet.create({
   list: {
     height: "100%",
     width: "100%",
-    backgroundColor: "#333333",
+    backgroundColor: "#1A1A1A",
     zIndex: -1
   },
   tasks: {
     borderTopColor: "#808080",
-    borderTopWidth: 1,
+    borderTopWidth: 0.5,
+    alignContent: "center",
+    alignItems: "center",
   },
   listEmptyComponent: {
     alignContent: "center",
     justifyContent: "center",
+    textAlign: "center",
+    marginBottom: 30,
+    top: 30
   },
   imgEmpty: {
     height: 58,
     width: 58,
+    alignContent: "center",
+    alignItems: "center",
+    left: "37%"
   },
   listEmptyText: {
-
+    color: "#808080",
+    fontWeight: "bold",
+    fontSize: 12,
+    textAlign: "center",
+    paddingTop: 10
+  },
+  listEmptyText2: {
+    color: "#808080",
+    fontSize: 12,
+    textAlign: "center"
   }
 })
