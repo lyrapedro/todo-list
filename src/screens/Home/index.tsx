@@ -55,6 +55,18 @@ export function Home() {
     ]);
   }
 
+  function handleTaskDone(taskId: string) {
+    const newTasksState = tasks.map((obj) => {
+      if (obj.id == taskId) {
+        const newValue = !obj.done;
+        return { ...obj, done: newValue };
+      }
+      return obj;
+    });
+
+    setTasks(newTasksState);
+  }
+
   return (
     <View style={styles.body}>
       <View style={styles.container}>
@@ -93,7 +105,7 @@ export function Home() {
                 <Task
                   key={item.id}
                   name={item.name}
-                  done={item.done}
+                  onChange={() => handleTaskDone(item.id)}
                   onRemove={() => handleTaskRemove(item.id, item.name)}
                 />
               )}

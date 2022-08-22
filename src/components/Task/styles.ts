@@ -15,8 +15,13 @@ export const styles =   StyleSheet.create({
     alignItems: "center",
     minHeight: 60
   },
+  container: {
+    padding: 14,
+    flex: 1,
+    flexDirection: "row",
+  },
   checkbox: {
-    marginLeft: 10
+    
   },
   taskText: {
     color: "#FFF",
